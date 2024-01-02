@@ -11,7 +11,7 @@
   content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta name="twitter:site" content="{{ $.Site.BaseURL }}" />
 <meta name="twitter:creator" content="{{ if .Params.Author }}{{ .Params.Author }}{{ else }}@{{ $.Site.Params.author }}{{ end }}" />
-{{ if isset .Params "Cover" }}
+{{ if .Params.Cover }}
 <meta name="twitter:image"
   content="{{ if .IsHome }}{{ $.Site.Params.avatar | absURL }}{{ else }}{{ .Params.Cover | absURL }}{{ end }}" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -29,7 +29,7 @@
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Title }}" />
 
-{{ if isset .Params "Cover" }}
+{{ if .Params.Cover }}
 <meta name="og:image"
   content="{{ if .IsHome }}{{ $.Site.Params.avatar | absURL }}{{ else }}{{ .Params.Cover | absURL }}{{ end }}" />
 {{ else }}
