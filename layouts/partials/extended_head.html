@@ -16,6 +16,13 @@
   content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta name="twitter:site" content="{{ $.Site.BaseURL }}" />
 <meta name="twitter:creator" content="{{ if .Params.Author }}{{ .Params.Author }}{{ else }}@{{ $.Site.Params.author }}{{ end }}" />
+{{ if .Params.Cover }}
+<meta name="twitter:image"
+  content="{{ if .IsHome }}{{ $.Site.Params.avatar | absURL }}{{ else }}{{ .Params.Cover | absURL }}{{ end }}">
+{{ else }}
+<meta name="twitter:image"
+  content="{{ $.Site.Params.avatar | absURL }}">
+{{ end }}
 
 <!-- OG data -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
